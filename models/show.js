@@ -2,7 +2,7 @@
 
 module.exports = function(sequelize, DataTypes) {
     var Show = sequelize.define("Show", {
-      show_name: {
+      title: {
         type: DataTypes.STRING,
         allowNull: false,
         validate: {
@@ -14,13 +14,18 @@ module.exports = function(sequelize, DataTypes) {
         allowNull: false,
         len: [1]
       },
-      duration: {
+      seasons: {
         type: DataTypes.INTEGER,
         allowNull: false,
         len: [1]
       },
      mood: {
         type: DataTypes.TEXT,
+        allowNull: false,
+        len: [1]
+      },
+      completed: {
+        type: DataTypes.BOOLEAN,
         allowNull: false,
         len: [1]
       }
