@@ -1,0 +1,15 @@
+<h1>Cheerful</h1>
+
+<ul>
+  {{#each shows}}
+    {{#if mood = cheerful}}
+    <li>
+        {{title}}
+        {{genre}}
+        {{seasons}}
+    </li>
+    {{/if}}
+  {{/each}}
+</ul>
+
+<script src="/public/assets/js/index.js"></script>

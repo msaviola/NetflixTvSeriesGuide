@@ -1,7 +1,20 @@
+var db = require("../models");
+
 module.exports = function (app) {
     
-    app.get('/', function(request, response) {
-        response.render('index', {});
+    app.get('/', function(req, res) {
+
+        db.Show.findAll({})
+          .then(function(dbShow){
+            // var showObj = res.json(dbShow);
+            var showObj = {
+                shows: dbShow
+            }
+            
+            res.render('index', showObj);
+          })
+
+        
     });
 
 };
