@@ -5,6 +5,7 @@
 // Dependencies
 // =============================================================
 var path = require("path");
+var db = require('../models');
 
 // Routes
 // =============================================================
@@ -13,17 +14,14 @@ module.exports = function (app) {
   //   // Each of the below routes just handles the HTML page that the user gets sent to.
 
   //   // index route loads view.html
-  app.get("/", function (req, res) {
-    res.sendFile(path.join(__dirname, "../public/temp.html"));
-    
-  });
+  
 
   // GET route for getting all of the todos
-  app.get("/api/shows", function (req, res) {
+  app.get("/", function (req, res) {
     // findAll returns all entries for a table when used with no options
     db.Show.findAll({}).then(function (dbShow) {
       // We have access to the todos as an argument inside of the callback function
-      res.json(dbShow);
+      res.render('index', dbShow);
     });
   });
 

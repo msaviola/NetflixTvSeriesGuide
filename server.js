@@ -5,7 +5,7 @@
 // *** Dependencies
 // =============================================================
 var express = require("express");
-
+const expressHandlebars = require('express-handlebars');
 // Sets up the Express App
 // =============================================================
 var app = express();
@@ -20,6 +20,10 @@ app.use(express.json());
 
 // Static directory
 app.use(express.static("public"));
+
+app.engine('handlebars', expressHandlebars({ defaultLayout: 'main' }));
+app.set('view engine', 'handlebars');
+
 
 // Routes
 // =============================================================
