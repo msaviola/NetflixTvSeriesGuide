@@ -37,6 +37,6 @@ module.exports = function (sequelize, DataTypes) {
   // Makes the Show Model available for other files (will also create a table)
  
 };
-module.exports = Show;
+
 
 
