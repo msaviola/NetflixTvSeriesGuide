@@ -1,3 +1,6 @@
+var db = require("../models");
+
+
 module.exports = function (app) {
     app.get("/api/shows", function(req, res){
         db.Show.findAll({})
@@ -24,7 +27,7 @@ module.exports = function (app) {
       app.get("/api/shows/mood/:mood", function(req, res) {
         db.Show.findAll({
           where: {
-            mood: req.params.category
+            mood: req.params.mood
           }
         })
           .then(function(dbShow) {
