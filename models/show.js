@@ -1,5 +1,3 @@
-
-
 module.exports = function (sequelize, DataTypes) {
   var Show = sequelize.define("Show", {
     title: {
@@ -28,15 +26,18 @@ module.exports = function (sequelize, DataTypes) {
       type: DataTypes.BOOLEAN,
       allowNull: false,
       len: [1]
+    },
+    length: {
+      type: DataTypes.BOOLEAN,
+      allowNull: false,
+      len: [1]
     }
-  });
+  },
+    {
+      timestamps: false
+    });
 
 
 
   return Show;
-  // Makes the Show Model available for other files (will also create a table)
- 
 };
-
-
-

@@ -13,7 +13,7 @@ var db = require("../models");
 module.exports = function(app) {
 
   // GET route for getting all of the posts
-  app.get("/api/shows/", function(req, res) {
+  app.get("/api/show/", function(req, res) {
     db.Show.findAll({})
       .then(function(dbShow) {
         res.json(dbShow);
@@ -21,7 +21,7 @@ module.exports = function(app) {
   });
 
   // Get route for retrieving a single post
-  app.get("/api/shows/:id", function(req, res) {
+  app.get("/api/show/:id", function(req, res) {
     db.Post.findOne({
       where: {
         id: req.params.id

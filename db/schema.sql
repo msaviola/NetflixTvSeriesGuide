@@ -1,5 +1,6 @@
 ### Schema
 
+DROP DATABASE IF EXISTS  netflix;
 CREATE DATABASE netflix;
 USE netflix;
 
@@ -13,3 +14,4 @@ CREATE TABLE shows
     completed BOOLEAN NOT NULL,
     PRIMARY KEY (id)
 );
+
