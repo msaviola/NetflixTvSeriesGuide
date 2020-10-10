@@ -1,54 +1,65 @@
 $(function () {
-    $(".new-show").on("submit", function (event) {
-        event.preventDefault();
 
-        var newShow = {
-            title: $("#title").val().trim(),
-            genre: $("[name=genre]:checked").val().trim(),
-            seasons: $("#seasons").val().trim(),
-            mood: $("[name=mood]:checked").val().trim(),
-            completed: $("[name=completed]:checked").val().trim(),
-            length: $("[name=length]:checked").val().trim(),
-        }
+  $(".new-show").on("submit", function (event) {
+    event.preventDefault();
 
-        $.ajax("/api/shows", {
-            type: "POST",
-            data: newCat
-          }).then(
-            function() {
-              console.log("created new cat");
-              // Reload the page to get the updated list
-              location.reload();
-            }
-          );
-    });
+    var newShow = {
+      title: $("#title").val().trim(),
+      genre: $("[name=genre]:checked").val().trim(),
+      seasons: $("#seasons").val().trim(),
+      mood: $("[name=mood]:checked").val().trim(),
+      completed: $("[name=completed]:checked").val().trim(),
+      length: $("[name=length]:checked").val().trim(),
+    }
 
-    $(".mood-button").on("click", function(event){
-        event.preventDefault();
+    $.ajax("/api/shows", {
+      type: "POST",
+      data: newCat
+    }).then(
+      function () {
+        console.log("created new cat");
+        // Reload the page to get the updated list
+        location.reload();
+      }
+    );
+  });
 
-        var chosenMood = $('.mood-button').val().trim()
+  $(".mood-button").on("click", function (event) {
+    event.preventDefault();
 
-        $.ajax({
-            url: "/api/shows/mood/" + chosenMood,
-            method: "GET"
-        }).then(function(response){
+    var chosenMood = $('.mood-button').val().trim()
 
-            
+    $.ajax({
+      url: "/api/shows/mood/" + chosenMood,
+      method: "GET"
+    }).then(function (response) {
 
-        })
+
 
     })
 
-    // $("#cheerful").on("click", function(event){
-    //     event.preventDefault();
+  })
 
-    //     $.ajax("/api/shows/mood/cheerful" {
-    //         type:
-    //         data: 
-    //     })
+  // $("#cheerful").on("click", function(event){
+  //     event.preventDefault();
+
+  //     $.ajax("/api/shows/mood/cheerful" {
+  //         type:
+  //         data: 
+  //     })
+
+  //   var expect = require('chai').expect
+  // , mood = 'cheerful'
+  // , Show = { dataValues: [ 'id', 'title', 'genre', 'seasons', 'mood', 'completed', 'length' ] };
+  //   
+  //    expect( mood).to.be.a('string');
+  //    expect( mood).to.equal('cheerful');
+  // 
+  //    expect(Show).to.have.property('dataValues').with.lengthOf(7);
+  //    expect(Show.dataValues.genre).to.equal('cheerful');
 
 
-    // })
+  // })
 
 
 
