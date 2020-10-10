@@ -1,5 +1,6 @@
 ### Schema
 
+DROP DATABASE IF EXISTS  netflix;
 CREATE DATABASE netflix;
 USE netflix;
 

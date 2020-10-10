@@ -6,6 +6,7 @@ module.exports = function (app) {
 
         db.Show.findAll({})
           .then(function(dbShow){
+            console.log(dbShow);
             // var showObj = res.json(dbShow);
             var showObj = {
                 shows: dbShow

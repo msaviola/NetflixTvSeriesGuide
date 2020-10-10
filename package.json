@@ -8,11 +8,13 @@
   },
   "dependencies": {
     "@handlebars/allow-prototype-access": "^1.0.3",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "express-handlebars": "^3.0.2",
     "mysql": "^2.18.1",
     "mysql2": "^2.2.5",
-    "sequelize": "^6.3.5"
+    "sequelize": "^6.3.5",
+    "stack": "^0.1.0"
   },
   "devDependencies": {},
   "scripts": {

@@ -4,6 +4,8 @@ const Handlebars = require('handlebars')
 const { allowInsecurePrototypeAccess } = require('@handlebars/allow-prototype-access')
 const exphbs = require('express-handlebars');
 
+require('dotenv').config();
+
 const app = express();
 const PORT = process.env.PORT || 8080;
 
@@ -23,7 +25,7 @@ app.set('view engine', 'handlebars');
 require('./controllers/view-routes')(app);
 require('./controllers/api-routes')(app);
 
-db.sequelize.sync({force: false}).then(function() {
+db.sequelize.sync({force:false}).then(function() {
     app.listen(PORT, function() {
       console.log("App listening on PORT " + PORT);
     });
