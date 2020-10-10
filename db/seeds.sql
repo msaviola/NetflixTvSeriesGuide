@@ -2,7 +2,7 @@ INSERT INTO shows (title, genre, seasons, mood, completed, length)
 VALUES ('The Good Place', 'Comedy', 4, 'Cheerful', true, false);
 
 INSERT INTO shows (title, genre, seasons, mood, completed, length) 
-VALUES ('Dexter', 'Drama', 8, 'Angry', true), true;
+VALUES ('Dexter', 'Drama', 8, 'Angry', true, true);
 
 INSERT INTO shows (title, genre, seasons, mood, completed, length) 
 VALUES ('The Office', 'Comedy', 9, 'Cheerful', true, false);
