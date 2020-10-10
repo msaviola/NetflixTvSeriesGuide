@@ -4,7 +4,7 @@ module.exports = {
     "password": "root",
     "database": "netflix",
     "host": "127.0.0.1",
-    "port": process.env.DB_PORT || 3306,
+    "port": process.env.DB_PORT || 8889,
     "dialect": "mysql"
   },
   "test": {
@@ -23,4 +23,6 @@ module.exports = {
     "port": 3306,
     "dialect": "mysql"
   }
+
+  
 }

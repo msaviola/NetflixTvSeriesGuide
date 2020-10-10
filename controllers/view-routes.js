@@ -6,6 +6,7 @@ module.exports = function (app) {
 
         db.Show.findAll({})
           .then(function(dbShow){
+            console.log(dbShow);
             // var showObj = res.json(dbShow);
             var showObj = {
                 shows: dbShow
@@ -17,15 +18,5 @@ module.exports = function (app) {
         
     });
 
-    app.get("/api/shows/mood/:mood", function(req, res) {
-        db.Show.findAll({
-          where: {
-            mood: req.params.category
-          }
-        })
-          .then(function(dbShow) {
-            res.json(dbShow);
-          });
-      });
 
 };
