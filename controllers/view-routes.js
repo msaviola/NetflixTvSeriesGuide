@@ -17,4 +17,15 @@ module.exports = function (app) {
         
     });
 
+    app.get("/api/shows/mood/:mood", function(req, res) {
+        db.Show.findAll({
+          where: {
+            mood: req.params.category
+          }
+        })
+          .then(function(dbShow) {
+            res.json(dbShow);
+          });
+      });
+
 };
