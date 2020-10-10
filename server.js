@@ -4,6 +4,8 @@ const Handlebars = require('handlebars')
 const { allowInsecurePrototypeAccess } = require('@handlebars/allow-prototype-access')
 const exphbs = require('express-handlebars');
 
+require('dotenv').config();
+
 const app = express();
 const PORT = process.env.PORT || 8080;
 
