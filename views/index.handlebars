@@ -1,56 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
-    <link href="../public/assets/css/styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <link href="../public/assets/css/styles.css">
 
 
-    <title>Document</title>
+  <title>Document</title>
 </head>
+
 <body>
- <div class="jumbotron"><h1>
-   Netflix Tv Series Guide
-   </h1>
- </div>
- <div class="card bg-secondary text-white text-center">
-   <div class="card bg-secondary text-white">So. What are you in the mood to watch?</div>
- </div>
- <button type="button" class="btn btn-primary btn-block">See FUll List</button>
- <button type="button" class="btn btn-primary btn-block">Add New Show</button>
- <div class="card bg-warning text-white">
-   <div class="card-body">
- <div class="row">
-   <div class="col">
-     <button type="button" class="btn btn-primary btn-lg">Cheerful</button>
-</div>
-   <div class="col">
-     <button type="button" class="btn btn-primary btn-lg">Excited</button>
-</div>
-   <div class="col">
-     <button type="button" class="btn btn-primary btn-lg">Romantic</button>
-</div>
-   <div class="col">
-     <button type="button" class="btn btn-primary btn-lg">Gloomy</button>
-</div>
-</div>
-</div>
+  <div class = "container">
+  <div class="jumbotron">
+    <h1>
+      Netflix Tv Series Guide
+    </h1>
+  </div>
 
-<!-- Build your index page here! -->
+  <div class="card bg-secondary text-white text-center">
+    <div class="card bg-secondary text-white">How are you feeling today?</div>
+  </div>
+  <button type="button" class="btn btn-primary btn-block">See Full List</button>
+  <button type="button" class="btn btn-primary btn-block">Add New Show</button>
+  <div class="card bg-warning text-white">
+    <div class="card-body">
+      <div class="row">
+        <div class="col">
+          <button value="cheerful" type="button" class="btn btn-primary btn-lg mood-button">Cheerful</button>
+        </div>
+        <div class="col">
+          <button value="excited" type="button" class="btn btn-primary btn-lg mood-button">Excited</button>
+        </div>
+        <div class="col">
+          <button value="romantic" type="button" class="btn btn-primary btn-lg mood-button">Romantic</button>
+        </div>
+        <div class="col">
+          <button value="gloomy" type="button" class="btn btn-primary btn-lg mood-button">Gloomy</button>
+        </div>
+        <div class="col">
+          <button value="angry" type="button" class="btn btn-primary btn-lg mood-button">Angry</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
 
 
-<ul>
-  {{#each shows}}
-    {{!-- {{#if mood = cheerful}} --}}
-    <li>
-        {{title}}
+  <div class="row">
+    <div class="col">
+      <div class = "col" id="show-content">
 
-    </li>
-    {{!-- {{/if}} --}}
-  {{/each}}
-</ul>
-    
+      </div>
+    </div>
+  </div>
+</div>
+  <!-- Build your index page here! -->
+
+
+  {{!-- <ul>
+      {{#each shows}}
+      {{!-- {{#if mood = cheerful}} --}}
+  <li>
+    {{!-- {{title}} --}}
+
+  </li>
+  {{!-- {{/if}} --}}
+  {{!-- {{/each}} --}}
+  {{!-- </ul> --}}
+
+  <script src="../public/assets/js/showscript.js" type="text/javascript"></script>
 </body>
+
 </html>
 <script src="/public/assets/js/index.js"></script>
