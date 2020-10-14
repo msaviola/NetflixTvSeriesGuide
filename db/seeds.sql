@@ -24,3 +24,6 @@ VALUES ('Unbreakable Kimmy Schmidt', 'Comedy', 4, 'Cheerful', true, false);
 
 INSERT INTO shows (title, genre, seasons, mood, completed, length) 
 VALUES ('The Vampire Diraries', 'Drama', 8, 'Romantic', true, true);
+
+-- INSERT INTO shows (title, genre, seasons, mood, completed, length) 
+-- VALUES ('Outlander', 'Drama', );

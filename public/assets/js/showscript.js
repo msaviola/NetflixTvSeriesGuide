@@ -1,96 +1,167 @@
 $(function () {
-    $(".new-show").on("submit", function (event) {
-        event.preventDefault();
 
-        console.log("submit works")
+  //script to add new show to database in post.html page
+  $(".new-show").on("submit", function (event) {
+    event.preventDefault();
 
-        var newShow = {
-            title: $("#title").val().trim(),
-            genre: $("[name=genre]:checked").val().trim(),
-            seasons: $("#seasons").val().trim(),
-            mood: $("[name=mood]:checked").val().trim(),
-            completed: $("[name=completed]:checked").val().trim(),
-            length: $("[name=length]:checked").val().trim(),
+    console.log("submit works")
+
+    var newShow = {
+      title: $("#title").val().trim(),
+      genre: $("[name=genre]:checked").val().trim(),
+      seasons: $("#seasons").val().trim(),
+      mood: $("[name=mood]:checked").val().trim(),
+      completed: $("[name=completed]:checked").val().trim(),
+      length: $("[name=length]:checked").val().trim(),
+    }
+
+    $.ajax("/api/shows", {
+      type: "POST",
+      data: newShow
+    }).then(
+      function () {
+        console.log("created new show");
+        // Reload the page to get the updated list
+        location.reload();
+      }
+    );
+  });
+
+  //script to display shows that belong to the mood when button is clicked
+  $(".mood-button").on("click", function (event) {
+    event.preventDefault();
+
+    var chosenMood = $(this).val().trim();
+
+    console.log(chosenMood)
+
+
+
+
+    $.ajax({
+      url: "/api/shows/mood/" + chosenMood,
+      method: "GET"
+    }).then(function (response) {
+
+      $("#show-content").empty();
+
+
+
+
+
+
+
+
+      for (var i = 0; i < response.length; i++) {
+        console.log(response[i].mood)
+
+        
+
+
+        $("#show-content").css({
+          "display": "flex",
+          "flex-direction": "row",
+          "padding": "20px",
+          "flex-wrap": "wrap",
+          "margin-bottom": "20px",
+          "justify-content": "center"
+        })
+
+        var showCard = $('<div>');
+        showCard.addClass("card text-white bg-danger mb-3 show-card");
+        showCard.css("margin", "20px");
+        $("#show-content").append(showCard);
+
+        // var cardBody = $('<div>');
+        // cardBody.addClass("card-body");
+        // showCard.append(cardBody)
+
+
+        var cheerfulImages = ["public/assets/images/cheerfulimg2.jpeg", "public/assets/images/cheerfulIMAGE3.jpg", "public/assets/images/happy3.jpg", "public/assets/images/happy2.jpg", "public/assets/images/happy1.jpg"];
+        var excitingImages = ["public/assets/images/ExcitedImage1.jpg", "public/assets/images/excitingimg2.jpg", "public/assets/images/excitingimage3.jpg", "public/assets/images/excitingimage4.jpg", "public/assets/images/excitingimage5.jpg"];
+        var gloomyImages = ["public/assets/images/GloomyImg1.jpg", "public/assets/images/gloomy2.jpg", "public/assets/images/gloomy3.jpg", "public/assets/images/gloomy4.jpeg", "public/assets/images/gloomy5.jpg"];
+        var romanticImages = ["public/assets/images/love1.jpg", "public/assets/images/love2.jpeg", "public/assets/images/love3.jpg", "public/assets/images/love4.jpeg", "public/assets/images/love5.jpg"]
+        var angryImages = ["public/assets/images/angry1.jpg", "public/assets/images/angry2.jpeg", "public/assets/images/angry3.jpg", "public/assets/images/angry4.jpg", "public/assets/images/angry5.jpg"]
+        var randomNum = Math.floor(Math.random() * 5);
+
+        if (response[i].mood == "Cheerful") {
+          console.log("CHEERFUL IMAGE")
+          var imgSource = cheerfulImages[randomNum];
+        } else if (response[i].mood == "Excited") {
+          console.log("EXCITED IMAGE")
+          var imgSource = excitingImages[randomNum];
+        } else if (response[i].mood == "Gloomy"){
+          console.log("GLOOMY IMAGE")
+          var imgSource = gloomyImages[randomNum]
+        } else if (response[i].mood == "Romantic"){
+          console.log("ROMANTIC IAMGE")
+          var imgSource = romanticImages[randomNum]
+        } else if (response[i].mood = "Angry"){
+          var imgSource = angryImages[randomNum]
         }
 
-        $.ajax("/api/shows", {
-            type: "POST",
-            data: newShow
-          }).then(
-            function() {
-              console.log("created new show");
-              // Reload the page to get the updated list
-              location.reload();
-            }
-          );
-    });
-
-    $(".mood-button").on("click", function(event){
-        event.preventDefault();
-
-        var chosenMood = $(this).val().trim();
-
-        console.log(chosenMood)
-
-        $.ajax({
-            url: "/api/shows/mood/" + chosenMood,
-            method: "GET"
-        }).then(function(response){
-
-          $("#show-content").empty();
-          
-          for (var i = 0; i < response.length; i++){
-            console.log(response[i].title)
-
-            
-            
-
-            var showCard = $('<div>');
-            showCard.addClass("card");
-            showCard.css("width:200px;");
-            $("#show-content").append(showCard);
-
-            // var cardBody = $('<div>');
-            // cardBody.addClass("card-body");
-            // showCard.append(cardBody)
-
-            var cardTitle = $('<h5>');
-            cardTitle.addClass("card-title");
-            cardTitle.text(response[i].title);
-            showCard.append(cardTitle)
-
-            var cardUl = $('<ul>');
-            cardUl.addClass("list-group list-group-flush");
-            showCard.append(cardUl);
-
-            var cardGenre = $('<li>');
-            cardGenre.addClass("list-group-item");
-            cardGenre.text(`Genre: ${response[i].genre}`);
-            cardUl.append(cardGenre);
 
 
 
 
+        var cardImage = $('<img>');
+        cardImage.attr("src", imgSource);
+        cardImage.css({ "height": "200px", "width": "300px" })
+        showCard.append(cardImage);
 
-          }
+        var cardTitle = $('<h3>');
+        cardTitle.addClass("card-title show-title");
+        cardTitle.css("padding", "10px")
+        cardTitle.text(response[i].title);
+        showCard.append(cardTitle)
+
+        var cardUl = $('<ul>');
+        cardUl.addClass("list-group list-group-flush ");
+        showCard.append(cardUl);
+
+        var cardGenre = $('<li>');
+        cardGenre.addClass("list-group-item bg-danger");
+        cardGenre.text(`Genre: ${response[i].genre}`);
+        cardUl.append(cardGenre);
+
+        var cardSeasons = $('<li>');
+        cardSeasons.addClass("list-group-item bg-danger");
+        cardSeasons.text(`Seasons: ${response[i].seasons}`);
+        cardUl.append(cardSeasons);
+
+        var cardFin = $('<li>');
+        cardFin.addClass("list-group-item bg-danger");
+
+        if (response[i].completed) {
+          cardFin.text("This show has finished airing!")
+        } else {
+          cardFin.text("This show is still on the air!")
+        }
+        // cardFin.text(`Completed: ${response[i].completed}`)
+        cardUl.append(cardFin);
 
 
-            
+        var cardLen = $('<li>');
+        cardLen.addClass("list-group-item bg-danger");
 
-        })
+        if (response[i].length){
+          cardLen.text("Average Episode Runtime: Over 30mins")
+        } else {
+          cardLen.text("Average Episode Runtime: Under 30mins ")
+        }
+
+        cardUl.append(cardLen)
+      }
+    
 
     })
 
-    // $("#cheerful").on("click", function(event){
-    //     event.preventDefault();
 
-    //     $.ajax("/api/shows/mood/cheerful" {
-    //         type:
-    //         data: 
-    //     })
+  });
 
 
-    // })
+
+
 
 
 

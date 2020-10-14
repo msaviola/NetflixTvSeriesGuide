@@ -5,37 +5,43 @@
     <title>post</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./public/assets/css/styles.css">
     <script src="https://code.jquery.com/jquery.js"></script>
 </head>
 
-<body>
+<body style="background-color: #E50914;">
 
-    <div class="container">
+    <div class="container post-container">
         <form class="new-show">
             <!-- title input -->
-            <label for="title">Title:</label><br>
-            <input type="text" id="title" name="title"><br>
-
+            <div>
+                <label for="title">Title:</label><br>
+                <input type="text" id="title" name="title"><br>
+            </div>
             <!-- genre radio buttons -->
-            <p>Genre:</p>
-            <input type="radio" id="Drama" name="genre" value="Drama">
-            <label for="Drama">Drama</label><br>
+            <div>
+                <p>Genre:</p>
+                <input type="radio" id="Drama" name="genre" value="Drama">
+                <label for="Drama">Drama</label><br>
 
-            <input type="radio" id="Comedy" name="genre" value="Comedy">
-            <label for="Comedy">Comedy</label><br>
+                <input type="radio" id="Comedy" name="genre" value="Comedy">
+                <label for="Comedy">Comedy</label><br>
 
-            <input type="radio" id="SciFi" name="genre" value="SciFi">
-            <label for="SciFi">SciFi</label><br>
+                <input type="radio" id="SciFi" name="genre" value="SciFi">
+                <label for="SciFi">SciFi</label><br>
+            </div>
 
             <!-- seasons input -->
-            <label for="seasons">Seasons:</label><br>
-            <input type="text" id="seasons" name="seasons"><br>
-
+            <div>
+                <label for="seasons">Seasons:</label><br>
+                <input type="text" id="seasons" name="seasons"><br>
+            </div>
             <!-- mood radio buttons -->
+            <div>
             <p>Mood:</p>
             <input type="radio" id="Cheerful" name="mood" value="Cheerful">
             <label for="Cheerful">Cheerful</label><br>
-
+                
             <input type="radio" id="Angry" name="mood" value="Angry">
             <label for="Angry">Angry</label><br>
 
@@ -47,25 +53,30 @@
 
             <input type="radio" id="Romantic" name="mood" value="Romantic">
             <label for="Romantic">Romantic</label><br>
-
+            </div>
             <!-- completed radio buttons -->
+            <div>
             <p>Has this show been completed?</p>
             <input type="radio" id="yes" name="completed" value="1">
             <label for="yes">yes</label><br>
-
+                
             <input type="radio" id="no" name="completed" value="0">
             <label for="no">no</label><br>
+            </div>
 
             <!-- over 30 minutes -->
+            <div>
             <p>How long is the average episode of this show?</p>
             <input type="radio" id="Long" name="length" value="1">
             <label for="Long">Over 30 minutes</label><br>
 
             <input type="radio" id="Short" name="length" value="0">
             <label for="Short">Under 30 minutes</label><br>
-
+            </div>
             <!-- submit -->
+            <div>
             <input type="submit" value="Submit">
+            </div>
 
         </form>
 
