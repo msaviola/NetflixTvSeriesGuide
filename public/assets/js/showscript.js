@@ -68,8 +68,8 @@ $(function () {
         })
 
         var showCard = $('<div>');
-        showCard.addClass("card text-white bg-danger mb-3 show-card");
-        showCard.css("margin", "20px");
+        showCard.addClass("card text-white mb-3 show-card");
+        showCard.css({"margin": "20px", "background-color": "#E50914"});
         $("#show-content").append(showCard);
 
         // var cardBody = $('<div>');
