@@ -1,23 +1,28 @@
-.container-fluid {
-    color: tomato;
-    margin-bottom: 10px;
-    background-color: cornsilk;
-    font-family: 'Oswald', sans-serif;
-    font-size: 2em;
-    
+.header {
+    background-color: red;
+    text-align: center;
+    font-family: 'Passion One', cursive;
+    text-shadow: black 3px 2px 3px;
+    border-color: black;
+    margin-bottom: -10px;
+    padding-top: 25px;
+    padding-bottom: 25px;
 }
 
 h1 {
-    background-color: cornsilk;
+    color: white;
     text-align: center;
     font-family: 'Passion One', cursive;
-    text-shadow: black 1px 2px .5px;
-    border-style: 1em;
-    border-color: black;
-    border-width: 2em 2em;
-    border-radius: 2em;
 }
 
+.container-fluid {
+    color: black;
+    margin-bottom: 10px;
+    background-color: black;
+    font-family: 'Oswald', sans-serif;
+    text-shadow:black  3px, 2px, 2px;
+    font-size: 2em;
+}
 
 
 
