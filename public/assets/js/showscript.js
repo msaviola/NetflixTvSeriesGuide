@@ -53,7 +53,7 @@ $(function () {
 
 
       for (var i = 0; i < response.length; i++) {
-        console.log(response[i].mood)
+        console.log(response[i].id)
 
         
 
@@ -73,7 +73,7 @@ $(function () {
         $("#show-content").append(showCard);
 
         // var cardBody = $('<div>');
-        // cardBody.addClass("card-body");
+        // cardBody.addClass("card-body");d
         // showCard.append(cardBody)
 
 
@@ -151,6 +151,43 @@ $(function () {
         }
 
         cardUl.append(cardLen)
+
+        // var viewRev = $('<button>');
+        // viewRev.addClass("btn btn-dark view-review");
+        // viewRev.text("View Reviews");
+        // showCard.append(viewRev);
+
+        // var newRev = $('<button>');
+        // newRev.addClass("btn btn-secondary new-review");
+        // newRev.text("Write a New Review");
+        // showCard.append(newRev);
+
+        var viewRev = $('<a>');
+        viewRev.addClass("view-review");
+        viewRev.attr('href', `/view-reviews?id=${response[i].id}`)
+        viewRev.css({"background-color": "gray",
+          "color": "white",
+          "font-size": "20px",
+          "padding": "1em 1.5em",
+          "text-decoration": "none",
+          "text-transform": "uppercase"})
+        viewRev.text("Click Here to View Reviews");
+        showCard.append(viewRev);
+
+        var newRev = $('<a>');
+        newRev.addClass("new-review");
+        newRev.attr('href', `/new-review?id=${response[i].id}`)
+        newRev.data("id", response[i].id);
+        newRev.css({"background-color": "black",
+        "color": "white",
+        "font-size": "20px",
+        "padding": "1em 1.5em",
+        "text-decoration": "none",
+        "text-transform": "uppercase"})
+        newRev.text("Click Here to Write a New Review");
+        showCard.append(newRev);
+
+        
       }
     
 
@@ -159,10 +196,102 @@ $(function () {
 
   });
 
+  // $(".new-review").on("click", function(event){
+  //   event.preventDefault();
+
+  //   var theID = $(this).data().trim();
+  //       console.log(theID)
+
+  // })
+
+  $("#write-review").on("submit", function (event) {
+    event.preventDefault();
+
+    console.log("review submit works")
+
+    var newReview = {
+      user: $("#User").val().trim(),
+      review: $("#Review").val()
+    };
+
+    const queryString = window.location.search;
+    console.log(queryString);
+    const urlParams = new URLSearchParams(queryString);
+    
+    var showId = urlParams.get('id');
+    console.log("THE ID ISSSS " + showId)
+
+    $.ajax("/api/new-review/" + showId, {
+      type: "POST",
+      data: newReview
+    }).then(
+      function () {
+        console.log("created new review");
+        // Reload the page to get the updated list
+        location.reload();
+      }
+    );
+  });
+
+
+$(".see-all").on("click", function(event){
+
+  event.preventDefault();
+
+  const queryString = window.location.search;
+  console.log(queryString);
+  const urlParams = new URLSearchParams(queryString);
+  
+  var showId = urlParams.get('id');
+  console.log("THE ID ISSSS " + showId)
+
+
+  $.ajax({
+    url: "/api/view-reviews/" + showId,
+    method: "GET"
+  }).then(function (response) {
+
+    $("#review-container").empty();
+
+    console.log(response)
+
+    for(var i = 0; i<response.length; i++){
+
+    console.log(response[i].user);
+
+    var allReviews = $('#review-container');
+
+    var revCard = $('<div>');
+    revCard.addClass("review-card card text-white mb-3");
+    allReviews.append(revCard);
+
+    revUser = $('<div>');
+    revUser.addClass("card-header");
+    revUser.css("font-size", "40px")
+    revUser.text(`User: ${response[i].user}`)
+    revCard.append(revUser);
+
+    revReview = $('<div>');
+    revReview.addClass("card-body");
+    revCard.append(revReview);
+
+    revBody = $('<p>');
+    revBody.addClass("card-text");
+    revBody.css("font-style", "italic")
+    revBody.text(`"${response[i].review}"`);
+    revReview.append(revBody);
+  }
+
+  })
+
+  
+})
 
 
 
 
+
+  
 
 
 });
