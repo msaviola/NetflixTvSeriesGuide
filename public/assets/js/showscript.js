@@ -165,7 +165,7 @@ $(function () {
         var viewRev = $('<a>');
         viewRev.addClass("view-review");
         viewRev.attr('href', `/view-reviews?id=${response[i].id}`)
-        viewRev.css({"background-color": "gray",
+        viewRev.css({"background-color": "#8c8c8c",
           "color": "white",
           "font-size": "20px",
           "padding": "1em 1.5em",
@@ -178,7 +178,7 @@ $(function () {
         newRev.addClass("new-review");
         newRev.attr('href', `/new-review?id=${response[i].id}`)
         newRev.data("id", response[i].id);
-        newRev.css({"background-color": "black",
+        newRev.css({"background-color": "#4d4d4d",
         "color": "white",
         "font-size": "20px",
         "padding": "1em 1.5em",
