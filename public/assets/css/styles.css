@@ -3,7 +3,6 @@
     text-align: center;
     font-family: 'Passion One', cursive;
     text-shadow: black 3px 2px 3px;
-    border-color: black;
     margin-bottom: -10px;
     padding-top: 25px;
     padding-bottom: 25px;
@@ -15,14 +14,17 @@ h1 {
     font-family: 'Passion One', cursive;
 }
 
-.container-fluid {
-    color: black;
-    margin-bottom: 10px;
-    background-color: black;
-    font-family: 'Oswald', sans-serif;
-    text-shadow:black  3px, 2px, 2px;
-    font-size: 2em;
+.row {
+    font-family: 'Passion One', cursive;
+    font-size: 3em;
+    text-shadow: black 2px, 2px, 2px;
 }
+
+.list-group-item {
+    background-color: darkcyan;
+}
+
+
 
 
 
