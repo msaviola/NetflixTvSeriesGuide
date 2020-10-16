@@ -2,25 +2,34 @@
 <html lang="en">
 
 <head>
-    <title>post</title>
+    <title>Add a New Show!</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="./public/assets/css/styles.css">
+    <link href="https://maxcdn.bootstrapcdn.com/bootswatch/4.0.0/flatly/bootstrap.min.css" rel="stylesheet">
     <script src="https://code.jquery.com/jquery.js"></script>
+    
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 </head>
 
 <body style="background-color: #E50914;">
+   
+        <div class="col-sm-2 mt-4">
+          <a class="btn btn-light" onclick="window.location.href='/'">Go Home</a>
+        </div>
+      
 
     <div class="container post-container">
+        
         <form class="new-show">
             <!-- title input -->
-            <div>
-                <label for="title">Title:</label><br>
-                <input type="text" id="title" name="title"><br>
+            <div class="form-group">
+                <label style= "font-weight: 900; font-size: 25px; color: black" for="title">Title:</label><br>
+                <input type="text" id="title" name="title" class="form-control"><br>
             </div>
             <!-- genre radio buttons -->
             <div>
-                <p>Genre:</p>
+                <p style= "font-weight: 900; font-size: 25px; color: black">Genre:</p>
                 <input type="radio" id="Drama" name="genre" value="Drama">
                 <label for="Drama">Drama</label><br>
 
@@ -32,13 +41,13 @@
             </div>
 
             <!-- seasons input -->
-            <div>
-                <label for="seasons">Seasons:</label><br>
-                <input type="text" id="seasons" name="seasons"><br>
+            <div class="form-group">
+                <label style= "font-weight: 900; font-size: 25px; color: black" for="seasons">Seasons:</label><br>
+                <input type="text" id="seasons" name="seasons" class="form-control"><br>
             </div>
             <!-- mood radio buttons -->
             <div>
-            <p>Mood:</p>
+            <p style= "font-weight: 900; font-size: 25px; color: black">Mood:</p>
             <input type="radio" id="Cheerful" name="mood" value="Cheerful">
             <label for="Cheerful">Cheerful</label><br>
                 
@@ -56,7 +65,7 @@
             </div>
             <!-- completed radio buttons -->
             <div>
-            <p>Has this show been completed?</p>
+            <p style= "font-weight: 900; font-size: 25px; color: black">Has this show been completed?</p>
             <input type="radio" id="yes" name="completed" value="1">
             <label for="yes">yes</label><br>
                 
@@ -66,7 +75,7 @@
 
             <!-- over 30 minutes -->
             <div>
-            <p>How long is the average episode of this show?</p>
+            <p style= "font-weight: 900; font-size: 25px; color: black">How long is the average episode of this show?</p>
             <input type="radio" id="Long" name="length" value="1">
             <label for="Long">Over 30 minutes</label><br>
 
@@ -75,7 +84,7 @@
             </div>
             <!-- submit -->
             <div>
-            <input type="submit" value="Submit">
+            <input style= "font-size: 25px" type="submit" value="Submit" class="btn btn-primary mb-2">
             </div>
 
         </form>
