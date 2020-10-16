@@ -4,6 +4,8 @@ const handlebars = require('handlebars')
 const { allowInsecurePrototypeAccess } = require('@handlebars/allow-prototype-access')
 const exphbs = require('express-handlebars');
 
+
+
 require('dotenv').config();
 
 const app = express();

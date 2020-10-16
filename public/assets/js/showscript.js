@@ -30,20 +30,21 @@ $(function () {
 
         var chosenMood = $(this).val().trim();
 
-        console.log(chosenMood)
-
         $.ajax({
             url: "/api/shows/mood/" + chosenMood,
             method: "GET"
         }).then(function(response){
+         
+          
 
           $("#show-content").empty();
           
           for (var i = 0; i < response.length; i++){
             console.log(response[i].title)
 
-            
-            
+
+            var responseMood= response[i].mood;          
+                   
 
             var showCard = $('<div>');
             showCard.addClass("card");
@@ -80,6 +81,7 @@ $(function () {
         })
 
     })
+  
 
   })
 
@@ -106,4 +108,6 @@ $(function () {
 
 
 
-});
+
+
+
