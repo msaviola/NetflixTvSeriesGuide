@@ -14,6 +14,10 @@ h1 {
     font-family: 'Passion One', cursive;
 }
 
+.card {
+    background-color: black;
+}
+
 .row {
     font-family: 'Passion One', cursive;
     font-size: 3em;
@@ -24,6 +28,9 @@ h1 {
     background-color: darkcyan;
 }
 
+body {
+    margin: 0px;
+}
 
 
 
