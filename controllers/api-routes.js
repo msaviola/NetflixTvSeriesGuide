@@ -46,4 +46,29 @@ module.exports = function (app) {
             res.json(dbShow);
           });
       });
+
+      app.get("/api/view-reviews/:id", function(req, res) {
+        db.Review.findAll({
+          where: {
+            ShowId: req.params.id
+          }
+        })
+          .then(function(dbShow) {
+            res.json(dbShow);
+          });
+      });
+
+      app.post("/api/new-review/:id", function(req, res) {
+        console.log(req.body);
+
+        db.Review.create({
+          user: req.body.user,
+          review: req.body.review,
+          ShowId: req.params.id
+        }
+        )
+          .then(function(dbShow) {
+            res.json(dbShow);
+          });
+      });
 };
