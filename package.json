@@ -28,7 +28,6 @@
     "test": "tests",
     "start": "node server.js",
     "cypress:open": "cypress open"
-    
   },
   "repository": {
     "type": "git",
